@@ -6,7 +6,7 @@ using namespace std;
 // Define the maximum number of vertices of the graph
 #define MAX_VERTICES 200
 // Define the maximum number of edges
-#define MAX_EDGES 200
+#define MAX_EDGES 2000
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
 		NUMEDGE = 10 + rand() % MAX_EDGES;
 
 		while (NUMEDGE > NUM*(NUM-1)/2)
-				NUMEDGE = 50 + rand() % MAX_EDGES;
+				NUMEDGE = 20 + rand() % MAX_EDGES;
 
 		// First print the number of vertices and edges
 		printf("%d %d\n", NUM, NUMEDGE);

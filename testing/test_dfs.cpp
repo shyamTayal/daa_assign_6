@@ -16,9 +16,7 @@ void dfs(int curr,int src)
 {
     closure[src][curr]=1;
     for(auto child:graph[curr]){
-        cnt++;
         if(closure[src][child]==0){
-            cnt++;
             dfs(child,src);
         }
     }
@@ -53,19 +51,19 @@ int main()
         cnt = 0;
         solve();
 
-        cout<<n<<","<<cnt<<"\n";
-
         outF<<"\n*************** Reachability matrix - "<<x<<" *****************\n";
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < n; j++)
             {
+                cnt++;
                 outF<<closure[i][j]<<" ";
             }
             outF<<endl;
         }
         outF<<"\n***********************************************************\n";
         x++;
+        cout<<n<<","<<cnt<<"\n";
     }
     fclose(stdout);
     fclose(stdin);
