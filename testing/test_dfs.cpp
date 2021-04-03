@@ -16,6 +16,7 @@ void dfs(int curr,int src)
 {
     closure[src][curr]=1;
     for(auto child:graph[curr]){
+        cnt++;
         if(closure[src][child]==0){
             cnt++;
             dfs(child,src);
