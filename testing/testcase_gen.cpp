@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define RUN 3
+#define RUN 100
 
 // Define the maximum number of vertices of the graph
-#define MAX_VERTICES 20
+#define MAX_VERTICES 200
 // Define the maximum number of edges
-#define MAX_EDGES 1000
+#define MAX_EDGES 200
 
 int main()
 {
 	set<pair<int, int>> container;
 	set<pair<int, int>>::iterator it;
 
-	freopen ("Test_Cases_Directed_Unweighted_Graph.in", "w", stdout);
+	freopen ("input_testcase.txt", "w", stdout);
 	//For random values every time
 	srand(time(NULL));
 
@@ -23,7 +23,7 @@ int main()
 	cout<<RUN<<'\n';
 	for (int i=1; i<=RUN; i++)
 	{
-		NUM = 50 + rand() % MAX_VERTICES;			// As given minimum value of N should be atleast 50
+		NUM = 20 + rand() % MAX_VERTICES;
 		NUMEDGE = 10 + rand() % MAX_EDGES;
 
 		while (NUMEDGE > NUM*(NUM-1)/2)
@@ -51,7 +51,6 @@ int main()
 			printf("%d %d\n", it->first, it->second);
 
 		container.clear();
-		printf("\n");
 
 	}
 	// Uncomment the below line to store
