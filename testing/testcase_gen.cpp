@@ -1,63 +1,47 @@
-// A C++ Program to generate test cases for
-// an unweighted directed graph
 #include<bits/stdc++.h>
 using namespace std;
 
-// Define the number of runs for the test data
-// generated
-#define RUN 1
+#define RUN 3
 
 // Define the maximum number of vertices of the graph
 #define MAX_VERTICES 20
-
 // Define the maximum number of edges
-#define MAX_EDGES 200
+#define MAX_EDGES 1000
 
 int main()
 {
 	set<pair<int, int>> container;
 	set<pair<int, int>>::iterator it;
 
-	// Uncomment the below line to store
-	// the test data in a file
 	freopen ("Test_Cases_Directed_Unweighted_Graph.in", "w", stdout);
-
 	//For random values every time
 	srand(time(NULL));
 
 	int NUM; // Number of Vertices
 	int NUMEDGE; // Number of Edges
 
+	cout<<RUN<<'\n';
 	for (int i=1; i<=RUN; i++)
 	{
-		NUM = 1 + rand() % MAX_VERTICES;
-
-		// Define the maximum number of edges of the graph
-		// Since the most dense graph can have N*(N-1)/2 edges
-		// where N = nnumber of vertices in the graph
-		NUMEDGE = 1 + rand() % MAX_EDGES;
+		NUM = 50 + rand() % MAX_VERTICES;			// As given minimum value of N should be atleast 50
+		NUMEDGE = 10 + rand() % MAX_EDGES;
 
 		while (NUMEDGE > NUM*(NUM-1)/2)
-				NUMEDGE = 1 + rand() % MAX_EDGES;
+				NUMEDGE = 50 + rand() % MAX_EDGES;
 
 		// First print the number of vertices and edges
 		printf("%d %d\n", NUM, NUMEDGE);
 
-		// Then print the edges of the form (a b)
-		// where 'a' is connected to 'b'
-		for (int j=1; j<=NUMEDGE; j++)
+		for (int j=0; j<NUMEDGE; j++)
 		{
-			int a = 1 + rand() % NUM;
-			int b = 1 + rand() % NUM;
+			int a = rand() % NUM;
+			int b = rand() % NUM;
 			pair<int, int> p = make_pair(a, b);
 
-			// Search for a random "new" edge everytime
-			// Note - In a tree the edge (a, b) is same
-			// as the edge (b, a)
 			while (container.find(p) != container.end())
 			{
-				a = 1 + rand() % NUM;
-				b = 1 + rand() % NUM;
+				a = rand() % NUM;
+				b = rand() % NUM;
 				p = make_pair(a, b);
 			}
 			container.insert(p);
