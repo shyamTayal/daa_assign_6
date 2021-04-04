@@ -1,0 +1,169 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{setspace, caption}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Find out if a vertex v is reachable from vertex u for all vertex(v,u) in a graph.
+\\
+{\footnotesize {
+IV semester - Bachelor’s of Technology in Information technology with specialization in Business Informatics,\\
+Indian Institute of Information Technology Allahabad, India
+}}
+\thanks{}
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Abhijeet Sonkar}
+\IEEEauthorblockA{\textit{IIB2019009} \\
+iiB2019009@iiita.ac.in \\
+Abhijeet-sonkar}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Aditya Raj}
+\IEEEauthorblockA{\textit{IIB2019007} \\
+iib2019007@iiita.ac.in \\
+Adityahulk}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Shyam Tayal}
+\IEEEauthorblockA{\textit{IIB2019008} \\
+iib2019008@iiita.ac.in \\
+shyamTayal}
+}
+
+
+\maketitle
+
+\begin{abstract}
+In this paper, we are devising an algorithm to a given directed graph, find out if a vertex v is reachable from another vertex u for all vertex pairs (u, v) in the given graph. Here reachable mean that there is a path from vertex u to v. The reach-ability matrix is called transitive closure of a graph.. This paper also analyzes the time and space complexity of the algorithms used and provides the most efficient approach to solve the given problem.
+\end{abstract}
+\bigskip
+\begin{IEEEkeywords}
+depth first search,floyyd warshal algo,reach-ability matrix
+\end{IEEEkeywords}
+
+\section{Introduction}
+Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking.
+The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem. The problem is to find shortest distances between every pair of vertices in a given edge weighted directed Graph. 
+
+Steps of doing Dfs:-
+Start by putting any one of the graph's vertices on top of a stack.
+Take the top item of the stack and add it to the visited list.
+Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the top of the stack.
+Keep repeating steps 2 and 3 until the stack is empty.
+
+Steps of Floyyd-Warshal:-
+We initialize the solution matrix same as the input graph matrix as a first step. Then we update the solution matrix by considering all vertices as an intermediate vertex. The idea is to one by one pick all vertices and updates all shortest paths which include the picked vertex as an intermediate vertex in the shortest path.
+
+\section{Algorithm Design}
+We have devised two algorithms to Find the possible pairs among n friends.
+
+Implementing steps of DFS Algorithm-> 
+We take all nodes and edges input and generate graph with an adjency list.Then we make an empty reachability matrix for representation of all paths.We run DFS algo function and mark nodes visted and then move to unvisited child of those nodes from adjency matrix correspondingly.
+
+\bigskip
+
+\begin{algorithm}[H]
+\begin{lstlisting}
+void dfs(int curr,int src)
+{
+
+    closure[src][curr]=1;
+
+    for(auto child:graph[curr])
+    {
+        if(closure[src][child]==0)
+        {
+            dfs(child,src);
+        }
+    }
+}
+
+\end{lstlisting}
+
+ \caption{Depth first Search }
+\end{algorithm}
+
+\bigskip
+The same problem can be solved out using floyyd Warshal's shortest path obtaining algorithm for all nodes.
+
+\newline We initially maintain an nxn matrix(that stores shortest path between any two nodes)  storing distance between adjacent nodes as given and other connected nodes as infinity.
+\newline Then, We use Dynamic Programming approach to fill and update that matrix.We calculate distance between two nodes via other mid-nodes or direct dustance and update with minimum distance as shortest path.
+\bigskip
+
+\begin{algorithm}[H]
+\begin{lstlisting}
+
+for (int k = 0; k < n; k++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                closure[i][j]=closure[i][j] || (closure[i][k]&&closure[k][j]);
+            }
+
+        }
+
+    }
+
+\end{lstlisting}
+
+ \caption{Floyyd Warshal Algorithm}
+\end{algorithm}
+\bigskip
+
+\section{Algorithm Analysis}
+\bigskip
+\begin{tabular}{ |p{3cm}||p{1.5cm}|p{1.5cm}| }
+ \hline
+ \multicolumn{3}{|c|}{Time and Space Complexity Comparison} \\
+ \hline
+ \textbf{Algorithms} &  \textbf{Time}& \textbf{Space} \\
+ \hline
+ DFS    &   O()  & O()\\
+ \hline
+ Flyod Warshal    &   O()  & O()\\
+ \hline
+\end{tabular}
+% \newpage
+
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=80mm]{tc_naive.png}}
+\caption{Algorithm 1 VS N}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=80mm]{tc_linear.png}}
+\caption{Algorithm 2 VS N}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=80mm]{tc_linear.png}}
+\caption{Algorithm 1 vs Algorithm 2}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+\section{Conclusion}
+
+
+\begin{thebibliography}{00}
+\bibitem{b1}https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm
+\bibitem{b2}https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+\end{thebibliography}
+
+\end{document}
