@@ -15,7 +15,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Find out if a vertex v is reachable from vertex u for all vertex(v,u) in a graph.
+\title{Find reachability of a node v to node u in a graph
 \\
 {\footnotesize {
 IV semester - Bachelor’s of Technology in Information technology with specialization in Business Informatics,\\
@@ -63,12 +63,13 @@ Keep repeating steps 2 and 3 until the stack is empty.
 
 Steps of Floyd-Warshall:-
 We initialize the solution matrix same as the input graph matrix as a first step. Then we update the solution matrix by considering all vertices as an intermediate vertex. The idea is to one by one pick all vertices and updates all shortest paths which include the picked vertex as an intermediate vertex in the shortest path.
-
+\bigskip
 \section{Algorithm Design}
 We have devised two algorithms to Find the possible pairs among n friends.
 
 Implementing steps of DFS Algorithm->
 We take all nodes and edges input and generate graph with an adjency list.Then we make an empty reachability matrix for representation of all paths.We run DFS algo function and mark nodes visted and then move to unvisited child of those nodes from adjency matrix correspondingly.
+
 \bigskip
 \begin{algorithm}[H]
 \begin{lstlisting}
@@ -86,8 +87,8 @@ answer = closure[v][u]
  \caption{Depth first Search }
 \end{algorithm}
 
-The same problem can be solved out using floyd Warshall's shortest path obtaining algorithm for all nodes.
-\newline We initially maintain an nxn matrix(that stores shortest path between any two nodes)  storing distance between adjacent nodes as given and other connected nodes as infinity.
+The same problem can be solved out using Floyd Warshall's shortest path obtaining algorithm for all nodes.
+\newline We initially maintain an nxn matrix (that stores shortest path between any two nodes) storing distance between adjacent nodes as given and other connected nodes as infinity.
 \newline Then, We use Dynamic Programming approach to fill and update that matrix.We calculate distance between two nodes via other mid-nodes or direct distance and update with minimum distance as shortest path.
 \bigskip
 
