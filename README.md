@@ -95,11 +95,16 @@ g++ test_dfs -o dfs
 
 ---
 ## Theory
+-Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking.
+The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem. The problem is to find shortest distances between every pair of vertices in a given edge weighted directed Graph.
 
+-The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem. The problem is to find shortest distances between every pair of vertices in a given edge weighted directed Graph. 
 
 ---
-## Analysis
+## Analysis-
+![alt text](file:///home/aditya/Downloads/DFS%20&%20Flloyd.png)
 ### Time Complexity
+
 
 ### Space Complexity
 
