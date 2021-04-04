@@ -104,6 +104,8 @@ The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem.
 ## Analysis-
 ![oie_Qi4jYrf3sVDA](https://user-images.githubusercontent.com/58138716/113515550-ce124600-9592-11eb-9dbc-1ed1f22ed178.png)
 
+![DFS   Flloyd](https://user-images.githubusercontent.com/58138716/113515448-36acf300-9592-11eb-8807-b5291174f9b9.png)
+
 
 ### Time Complexity
 ![DFS vs  N](https://user-images.githubusercontent.com/58138716/113515468-55ab8500-9592-11eb-8a47-a3e1289871a7.png)
@@ -111,11 +113,12 @@ The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem.
 
 
 ### Space Complexity
-![DFS   Flloyd](https://user-images.githubusercontent.com/58138716/113515448-36acf300-9592-11eb-8807-b5291174f9b9.png)
+The problem instructs to store path in form of reachability matrix.Hence, Both algorithms have space complexity N^2;
 
 ---
 ## References
--https://en.wikipedia.org/wiki/Floyd\%E2\%80\%93Warshall\_algorithm
--https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+ https://en.wikipedia.org/wiki/Floyd\%E2\%80\%93Warshall\_algorithm
+ 
+ https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
 
 
